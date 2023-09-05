@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: mall-order
+  cloud:
+    consul:
+      config:
+        format: yaml
+        profile-separator: "-"
+        data-key: data
+        prefixes: config
+        enabled: true
+  config:
+    import: optional:consul:${spring.cloud.consul.host}:${spring.cloud.consul.port}/config/${spring.application.name}-dev
+
+
+
